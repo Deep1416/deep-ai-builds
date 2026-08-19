@@ -12,7 +12,7 @@ export function AchievementsSection() {
         <SectionHeading eyebrow="Recognition" title="Achievements" />
         <div className="mt-14 grid gap-5 md:grid-cols-3">
           {achievements.map((item, i) => {
-            const Icon = icons[i % icons.length];
+            const Icon = icons[i % icons.length] ?? Trophy;
             return (
               <Reveal key={item.title} delay={i * 70} className="surface-card h-full p-6">
                 <Icon className="size-5 text-primary" aria-hidden="true" />
