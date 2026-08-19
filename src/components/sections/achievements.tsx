@@ -3,7 +3,7 @@ import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { achievements, education } from "@/data/portfolio";
 
-const icons = [Trophy, Award, GraduationCap];
+const icons = [Trophy, Award, GraduationCap] as const;
 
 export function AchievementsSection() {
   return (
