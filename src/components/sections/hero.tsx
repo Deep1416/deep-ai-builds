@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ArchitectureVisual } from "@/components/architecture-visual";
 import { MetricCard } from "@/components/metric-card";
 import { Reveal } from "@/components/reveal";
+import { WordReveal } from "@/components/word-reveal";
 import { heroMetrics, site } from "@/data/portfolio";
 
 export function HeroSection() {
@@ -10,6 +11,15 @@ export function HeroSection() {
     <section id="home" className="relative overflow-hidden pt-32 pb-16 md:pt-40 md:pb-24">
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 glow-hero" />
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 grid-lines opacity-40" />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -top-24 -left-24 aurora size-[26rem] bg-primary/30"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute top-32 -right-20 aurora size-[22rem] bg-accent-cyan/25"
+        style={{ animationDelay: "-6s" }}
+      />
 
       <div className="container-page relative grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
         <div>
@@ -26,8 +36,16 @@ export function HeroSection() {
 
           <Reveal delay={90}>
             <h1 className="mt-7 text-4xl leading-[1.05] font-semibold sm:text-5xl md:text-6xl">
-              I build <span className="text-gradient">scalable products</span> and production{" "}
-              <span className="text-gradient">AI systems</span>.
+              <WordReveal
+                segments={[
+                  "I build",
+                  { node: "scalable", className: "text-gradient-animated" },
+                  { node: "products", className: "text-gradient-animated" },
+                  "and production",
+                  { node: "AI", className: "text-gradient-animated" },
+                  { node: "systems.", className: "text-gradient-animated" },
+                ]}
+              />
             </h1>
           </Reveal>
 
@@ -76,7 +94,7 @@ export function HeroSection() {
           </Reveal>
         </div>
 
-        <Reveal delay={200}>
+        <Reveal delay={200} className="float-slow">
           <ArchitectureVisual />
         </Reveal>
       </div>
