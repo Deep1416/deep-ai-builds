@@ -39,11 +39,11 @@ export function HeroSection() {
               <WordReveal
                 segments={[
                   "I build",
-                  { node: "scalable", className: "text-gradient-animated" },
-                  { node: "products", className: "text-gradient-animated" },
+                  { node: "scalable", className: "text-gradient" },
+                  { node: "products", className: "text-gradient" },
                   "and production",
-                  { node: "AI", className: "text-gradient-animated" },
-                  { node: "systems.", className: "text-gradient-animated" },
+                  { node: "AI", className: "text-gradient" },
+                  { node: "systems.", className: "text-gradient" },
                 ]}
               />
             </h1>
