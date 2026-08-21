@@ -73,6 +73,7 @@ function Index() {
       >
         Skip to content
       </a>
+      <ScrollProgress />
       <SiteNav />
       <main>
         <HeroSection />
