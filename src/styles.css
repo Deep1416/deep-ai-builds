@@ -262,6 +262,7 @@
     var(--accent-cyan) 100%
   );
   background-size: 250% 100%;
+  -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   animation: gradient-pan 9s ease-in-out infinite;
