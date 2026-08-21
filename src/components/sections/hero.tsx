@@ -94,8 +94,10 @@ export function HeroSection() {
           </Reveal>
         </div>
 
-        <Reveal delay={200} className="float-slow">
-          <ArchitectureVisual />
+        <Reveal delay={200}>
+          <div className="float-slow">
+            <ArchitectureVisual />
+          </div>
         </Reveal>
       </div>
     </section>
