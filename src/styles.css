@@ -347,3 +347,188 @@
     transform: translateY(-10px);
   }
 }
+
+/* ---------- Pointer layer ---------- */
+.cursor-glow,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 70;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  will-change: transform;
+}
+
+.cursor-glow.is-visible,
+.cursor-ring.is-visible {
+  opacity: 1;
+}
+
+.cursor-glow {
+  width: 320px;
+  height: 320px;
+  border-radius: 9999px;
+  background: radial-gradient(
+    circle,
+    color-mix(in oklab, var(--primary) 22%, transparent) 0%,
+    color-mix(in oklab, var(--accent-cyan) 10%, transparent) 40%,
+    transparent 68%
+  );
+  filter: blur(6px);
+}
+
+.cursor-glow.is-visible {
+  opacity: 0.75;
+}
+
+.cursor-ring {
+  width: 26px;
+  height: 26px;
+  border-radius: 9999px;
+  border: 1px solid color-mix(in oklab, var(--foreground) 45%, transparent);
+  background: color-mix(in oklab, var(--foreground) 6%, transparent);
+  backdrop-filter: blur(1px);
+  transition:
+    opacity 0.3s ease,
+    width 0.25s ease,
+    height 0.25s ease,
+    border-color 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.cursor-ring.is-hot {
+  width: 48px;
+  height: 48px;
+  border-color: color-mix(in oklab, var(--accent-cyan) 70%, transparent);
+  background: color-mix(in oklab, var(--primary) 16%, transparent);
+}
+
+.cursor-ring.is-down {
+  width: 18px;
+  height: 18px;
+  border-color: var(--accent-cyan);
+}
+
+/* ---------- Page loader ---------- */
+.loader-shell {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: var(--background);
+  transition:
+    opacity 0.6s ease,
+    transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.loader-shell.is-leaving {
+  opacity: 0;
+  transform: translateY(-101%);
+}
+
+.loader-aurora {
+  position: absolute;
+  inset: -30%;
+  background:
+    radial-gradient(closest-side, color-mix(in oklab, var(--primary) 26%, transparent), transparent) 30% 35% / 55% 55%
+      no-repeat,
+    radial-gradient(closest-side, color-mix(in oklab, var(--accent-cyan) 20%, transparent), transparent) 70% 65% / 50% 50%
+      no-repeat;
+  filter: blur(40px);
+  animation: aurora-drift 9s ease-in-out infinite alternate;
+}
+
+.loader-inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+.loader-mark {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 92px;
+  height: 92px;
+}
+
+.loader-mark-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  border: 1px solid color-mix(in oklab, var(--foreground) 14%, transparent);
+  border-top-color: var(--accent-cyan);
+  border-right-color: var(--primary);
+  animation: loader-spin 1.1s linear infinite;
+}
+
+.loader-mark-text {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  background-image: var(--gradient-text);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: loader-pulse 2s ease-in-out infinite;
+}
+
+.loader-copy {
+  animation: fade-in 0.8s ease-out both;
+}
+
+.loader-bar {
+  position: relative;
+  width: min(260px, 60vw);
+  height: 2px;
+  border-radius: 9999px;
+  background: color-mix(in oklab, var(--foreground) 12%, transparent);
+  overflow: hidden;
+}
+
+.loader-bar-fill {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background-image: linear-gradient(90deg, var(--primary), var(--accent-cyan));
+  transform-origin: left center;
+  transition: transform 0.15s linear;
+}
+
+.loader-count {
+  font-size: 0.75rem;
+  letter-spacing: 0.24em;
+  color: color-mix(in oklab, var(--foreground) 55%, transparent);
+}
+
+@keyframes loader-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loader-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loader-aurora,
+  .loader-mark-ring,
+  .loader-mark-text {
+    animation: none;
+  }
+}
