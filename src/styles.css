@@ -252,20 +252,6 @@
 
 /* ---------- motion layer ---------- */
 
-@utility text-gradient-animated {
-  background-image: linear-gradient(
-    100deg,
-    var(--primary) 0%,
-    var(--accent-cyan) 35%,
-    var(--foreground) 55%,
-    var(--primary) 80%,
-    var(--accent-cyan) 100%
-  );
-  background-size: 250% 100%;
-  background-clip: text;
-  color: transparent;
-  animation: gradient-pan 9s ease-in-out infinite;
-}
 
 @utility aurora {
   position: absolute;
@@ -332,15 +318,6 @@
   transition: transform 0.12s linear;
 }
 
-@keyframes gradient-pan {
-  0%,
-  100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
 
 @keyframes aurora-drift {
   0% {

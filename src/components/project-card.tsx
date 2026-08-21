@@ -9,7 +9,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
   const flip = index % 2 === 1;
 
   return (
-    <Reveal as="article" className="surface-card overflow-hidden p-5 sm:p-8">
+    <Reveal as="article" className="surface-card spotlight hover-lift overflow-hidden p-5 sm:p-8">
       <div className={cn("grid items-center gap-8 lg:grid-cols-2 lg:gap-12")}>
         <div className={cn("order-1", flip && "lg:order-2")}>
           <div className="flex items-center gap-3 font-mono text-[0.7rem] tracking-[0.18em] text-muted-foreground uppercase">

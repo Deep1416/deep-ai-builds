@@ -26,14 +26,13 @@ export function WordReveal({ segments, className, delay = 120, step = 65 }: Prop
   return (
     <span className={className}>
       {units.map((unit, i) => (
-        <span key={i} className="inline-block overflow-hidden pb-[0.08em] align-bottom">
-          <span
-            className={cn("word-rise", unit.className)}
-            style={{ animationDelay: `${delay + i * step}ms` }}
-          >
-            {unit.node}
+        <span key={i}>
+          <span className="inline-block overflow-hidden pb-[0.08em] align-bottom">
+            <span className="word-rise" style={{ animationDelay: `${delay + i * step}ms` }}>
+              <span className={cn("inline-block", unit.className)}>{unit.node}</span>
+            </span>
           </span>
-          {i < units.length - 1 ? <span className="inline-block">&nbsp;</span> : null}
+          {i < units.length - 1 ? " " : null}
         </span>
       ))}
     </span>

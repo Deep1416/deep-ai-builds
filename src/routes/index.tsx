@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { ScrollProgress } from "@/components/scroll-progress";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { TechMarquee } from "@/components/tech-marquee";
@@ -73,6 +74,7 @@ function Index() {
       >
         Skip to content
       </a>
+      <ScrollProgress />
       <SiteNav />
       <main>
         <HeroSection />
