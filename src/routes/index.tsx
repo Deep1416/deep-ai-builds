@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ScrollProgress } from "@/components/scroll-progress";
+import { CursorGlow } from "@/components/cursor-glow";
+import { PageLoader } from "@/components/page-loader";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { TechMarquee } from "@/components/tech-marquee";
@@ -74,6 +76,8 @@ function Index() {
       >
         Skip to content
       </a>
+      <PageLoader />
+      <CursorGlow />
       <ScrollProgress />
       <SiteNav />
       <main>
