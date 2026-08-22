@@ -26,7 +26,12 @@ export function ExperienceTimeline() {
                       {h.metric}
                     </span>
                   ) : (
-                    <span aria-hidden="true" className="hidden shrink-0 sm:block sm:w-40" />
+                    <span
+                      aria-hidden="true"
+                      className="hidden shrink-0 sm:flex sm:w-40 sm:items-center sm:justify-start sm:pt-1"
+                    >
+                      <span className="h-px w-6 bg-border" />
+                    </span>
                   )}
                   <span className="text-sm leading-relaxed text-muted-foreground">{h.text}</span>
                 </li>

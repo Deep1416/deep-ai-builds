@@ -21,8 +21,22 @@ export function PageLoader() {
     document.documentElement.style.overflow = "hidden";
 
     const start = performance.now();
-    const duration = 1500;
+    const duration = 1100;
     let raf = 0;
+    let done = false;
+    let exitTimer = 0;
+
+    const finish = () => {
+      if (done) return;
+      done = true;
+      cancelAnimationFrame(raf);
+      setProgress(100);
+      setLeaving(true);
+      exitTimer = window.setTimeout(() => {
+        setActive(false);
+        document.documentElement.style.overflow = "";
+      }, 700);
+    };
 
     const tick = (now: number) => {
       const t = Math.min(1, (now - start) / duration);
@@ -31,17 +45,17 @@ export function PageLoader() {
       if (t < 1) {
         raf = requestAnimationFrame(tick);
       } else {
-        setLeaving(true);
-        window.setTimeout(() => {
-          setActive(false);
-          document.documentElement.style.overflow = "";
-        }, 850);
+        finish();
       }
     };
     raf = requestAnimationFrame(tick);
+    // Safety net: never let a throttled frame loop keep the shutter up.
+    const hardStop = window.setTimeout(finish, duration + 250);
 
     return () => {
       cancelAnimationFrame(raf);
+      window.clearTimeout(hardStop);
+      window.clearTimeout(exitTimer);
       document.documentElement.style.overflow = "";
     };
   }, []);
