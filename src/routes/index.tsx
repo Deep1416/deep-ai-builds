@@ -76,6 +76,8 @@ function Index() {
       >
         Skip to content
       </a>
+      <PageLoader />
+      <CursorGlow />
       <ScrollProgress />
       <SiteNav />
       <main>
