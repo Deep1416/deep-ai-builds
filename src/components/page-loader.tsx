@@ -16,8 +16,7 @@ export function PageLoader() {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    if (sessionStorage.getItem("dr-loader-seen") === "1") return;
-    sessionStorage.setItem("dr-loader-seen", "1");
+    // Runs on every page load / reload
     setActive(true);
     document.documentElement.style.overflow = "hidden";
 

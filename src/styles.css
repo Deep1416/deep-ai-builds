@@ -411,6 +411,38 @@
   border-color: var(--accent-cyan);
 }
 
+/* Light theme: the glow needs more saturation and less spread to read well,
+   and the ring needs a darker outline against light surfaces. */
+.light .cursor-glow {
+  width: 240px;
+  height: 240px;
+  background: radial-gradient(
+    circle,
+    color-mix(in oklab, var(--primary) 26%, transparent) 0%,
+    color-mix(in oklab, var(--accent-violet) 12%, transparent) 45%,
+    transparent 70%
+  );
+  filter: blur(10px);
+}
+
+.light .cursor-glow.is-visible {
+  opacity: 0.42;
+}
+
+.light .cursor-ring {
+  border-color: color-mix(in oklab, var(--primary) 65%, transparent);
+  background: color-mix(in oklab, var(--primary) 8%, transparent);
+}
+
+.light .cursor-ring.is-hot {
+  border-color: var(--primary);
+  background: color-mix(in oklab, var(--primary) 14%, transparent);
+}
+
+.light .cursor-ring.is-down {
+  border-color: var(--accent-violet);
+}
+
 /* ---------- Page loader ---------- */
 .loader-shell {
   position: fixed;
