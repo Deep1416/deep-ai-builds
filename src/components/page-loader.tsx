@@ -21,7 +21,7 @@ export function PageLoader() {
     document.documentElement.style.overflow = "hidden";
 
     const start = performance.now();
-    const duration = 1500;
+    const duration = 1100;
     let raf = 0;
 
     const tick = (now: number) => {
@@ -35,7 +35,7 @@ export function PageLoader() {
         window.setTimeout(() => {
           setActive(false);
           document.documentElement.style.overflow = "";
-        }, 850);
+        }, 700);
       }
     };
     raf = requestAnimationFrame(tick);
