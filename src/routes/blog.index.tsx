@@ -4,7 +4,7 @@ import { CursorGlow } from "@/components/cursor-glow";
 import { ScrollProgress } from "@/components/scroll-progress";
 import { SiteFooter } from "@/components/site-footer";
 import { Reveal } from "@/components/reveal";
-import { blogMeta, sortedPosts } from "@/data/blog";
+import { blogMeta, formatDate, sortedPosts } from "@/data/blog";
 import { site } from "@/data/portfolio";
 
 const pageTitle = `${blogMeta.title} — ${site.name}`;
@@ -114,13 +114,4 @@ function BlogIndex() {
       <SiteFooter />
     </div>
   );
-}
-
-export function formatDate(iso: string) {
-  return new Date(`${iso}T00:00:00Z`).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-    timeZone: "UTC",
-  });
 }
