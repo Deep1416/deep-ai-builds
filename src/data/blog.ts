@@ -168,7 +168,7 @@ export const posts: readonly BlogPost[] = [
       { type: "h2", text: "Move slow work off the request" },
       {
         type: "list",
-          items: [
+        items: [
           "Emails, webhooks and report generation belong in a queue, not in the handler.",
           "Return an identifier the client can poll or subscribe to.",
           "Make every task idempotent so retries are safe.",
@@ -217,7 +217,7 @@ export const posts: readonly BlogPost[] = [
       { type: "h2", text: "Evaluate continuously" },
       {
         type: "list",
-          items: [
+        items: [
           "Keep a fixed set of real questions with expected sources.",
           "Track retrieval recall separately from answer quality — they fail for different reasons.",
           "Re-run the set on every prompt, chunking or model change before shipping it.",
@@ -236,3 +236,12 @@ export function getPost(slug: string) {
 }
 
 export const sortedPosts = [...posts].sort((a, b) => (a.date < b.date ? 1 : -1));
+
+export function formatDate(iso: string) {
+  return new Date(`${iso}T00:00:00Z`).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+    timeZone: "UTC",
+  });
+}

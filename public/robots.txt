@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://deependra-rajput.lovable.app/sitemap.xml
+Sitemap: https://deep-ai-builds.lovable.app/sitemap.xml

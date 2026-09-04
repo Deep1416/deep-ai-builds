@@ -14,6 +14,7 @@ import { SkillsSection } from "@/components/sections/skills";
 import { ImpactSection } from "@/components/sections/impact";
 import { AchievementsSection } from "@/components/sections/achievements";
 import { ContactSection } from "@/components/sections/contact";
+import { BlogSection } from "@/components/sections/blog";
 import { site } from "@/data/portfolio";
 
 const personSchema = {
@@ -89,6 +90,7 @@ function Index() {
         <AiEngineeringSection />
         <SkillsSection />
         <ImpactSection />
+        <BlogSection />
         <AchievementsSection />
         <ContactSection />
       </main>

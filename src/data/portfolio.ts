@@ -15,7 +15,7 @@ export const site = {
   github: "https://github.com/Deep1416",
   linkedin: "https://linkedin.com/in/deependra14",
   resumeUrl: "/resume.pdf",
-  url: "https://deependra-rajput.lovable.app",
+  url: "https://deep-ai-builds.lovable.app",
   seo: {
     title: "Deependra Rajput | Full Stack Developer & AI Engineer",
     description:
@@ -29,6 +29,7 @@ export const navItems = [
   { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
   { label: "Skills", href: "#skills" },
+  { label: "Blog", href: "#blog" },
   { label: "Achievements", href: "#achievements" },
   { label: "Contact", href: "#contact" },
 ] as const;
