@@ -1,6 +1,10 @@
 import { Reveal } from "@/components/motion/reveal";
 import { experience } from "@/features/home/data";
 
+// Highlights without a headline metric go last so the metric column stays unbroken.
+const withMetricsFirst = <T extends { metric?: string }>(items: readonly T[]) =>
+  [...items].sort((a, b) => Number(!a.metric) - Number(!b.metric));
+
 export function ExperienceTimeline() {
   return (
     <ol className="relative mt-14 space-y-10 border-l border-border/70 pl-6 sm:pl-10">
@@ -19,7 +23,7 @@ export function ExperienceTimeline() {
               <p className="font-mono text-xs tracking-wider text-muted-foreground">{job.period}</p>
             </div>
             <ul className="mt-6 space-y-3">
-              {job.highlights.map((h) => (
+              {withMetricsFirst(job.highlights).map((h) => (
                 <li
                   key={h.text}
                   className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:gap-4"
@@ -29,12 +33,7 @@ export function ExperienceTimeline() {
                       {h.metric}
                     </span>
                   ) : (
-                    <span
-                      aria-hidden="true"
-                      className="hidden shrink-0 sm:flex sm:w-40 sm:items-center sm:justify-start sm:pt-1"
-                    >
-                      <span className="h-px w-6 bg-border" />
-                    </span>
+                    <span aria-hidden="true" className="hidden shrink-0 sm:block sm:w-40" />
                   )}
                   <span className="text-sm leading-relaxed text-muted-foreground">{h.text}</span>
                 </li>

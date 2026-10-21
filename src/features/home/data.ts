@@ -204,12 +204,23 @@ export const skillGroups = [
     ],
   },
   {
-    title: "Cloud & DevOps",
-    items: ["AWS", "GCP", "Docker", "Kubernetes", "GitHub Actions", "CI/CD", "Git", "GitHub"],
-  },
-  {
-    title: "Testing",
-    items: ["Pytest", "Vitest", "Supertest", "TDD", "Unit Testing", "Integration Testing"],
+    title: "Cloud, DevOps & Testing",
+    items: [
+      "AWS",
+      "GCP",
+      "Docker",
+      "Kubernetes",
+      "GitHub Actions",
+      "CI/CD",
+      "Git",
+      "GitHub",
+      "Pytest",
+      "Vitest",
+      "Supertest",
+      "TDD",
+      "Unit Testing",
+      "Integration Testing",
+    ],
   },
 ] as const;
 

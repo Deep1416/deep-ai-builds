@@ -28,14 +28,12 @@ function DashboardMock() {
   return (
     <div className="grid gap-3" aria-hidden="true">
       <div className="grid grid-cols-3 gap-3">
-        {["Orders", "Revenue", "AI Chats"].map((label, i) => (
+        {["Orders", "Revenue", "AI Chats"].map((label) => (
           <div key={label} className="rounded-xl border border-border/70 bg-surface/50 p-3">
             <p className="font-mono text-[0.6rem] tracking-widest text-muted-foreground uppercase">
               {label}
             </p>
-            <p className="mt-2 font-display text-lg font-semibold">
-              {["1,284", "$42.6k", "512"][i]}
-            </p>
+            <Bar className="mt-3 h-3 w-2/3" />
           </div>
         ))}
       </div>
