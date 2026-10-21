@@ -12,5 +12,3 @@ Allow: /
 
 User-agent: *
 Allow: /
-
-Sitemap: https://deep-ai-builds.lovable.app/sitemap.xml

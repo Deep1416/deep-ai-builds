@@ -936,25 +936,32 @@ Contact / hiring CTA
 
 Generate the complete responsive portfolio with polished desktop and mobile layouts.
 
-This project was built with [Lovable](https://lovable.dev).
-
-**Live app**: https://deep-ai-builds.lovable.app
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/9196190d-2372-431d-ad6b-9117603aa2b2).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
 ## Development
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+Requires Node.js 20+ and npm.
 
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
+npm install
+npm run dev        # local dev server
+npm run build      # typecheck, bundle, then prerender per-route <head> tags
+npm run preview    # serve the production build
+npm run lint
+```
+
+### Configuration
+
+| Variable | Purpose |
+| --- | --- |
+| `VITE_SITE_URL` | Public origin (no trailing slash). Used for canonical/OG URLs, JSON-LD, `sitemap.xml` and the `robots.txt` sitemap line. When unset, those are omitted and the build warns. See `.env.example`. |
+
+### Structure
+
+```
+src/
+├── app/          app bootstrap and router instance
+├── routes/       thin TanStack Router file routes (head + page component only)
+├── features/     home, projects, blog, contact — components, data, SEO per feature
+├── components/   shared only: ui/, layout/, motion/, common/, feedback/
+├── hooks/  lib/  config/
+scripts/prerender.mjs   post-build: per-route <head>, sitemap.xml, robots.txt
 ```
