@@ -3,6 +3,7 @@ import { Reveal } from "@/components/motion/reveal";
 import { BackLink } from "@/features/blog/components/back-link";
 import { BlogLayout } from "@/features/blog/components/blog-layout";
 import { PostBlock } from "@/features/blog/components/post-block";
+import { PostToc } from "@/features/blog/components/post-toc";
 import { PostMeta } from "@/features/blog/components/post-meta";
 import { TagList } from "@/features/blog/components/tag-list";
 import { sortedPosts, type BlogPost } from "@/features/blog/data";
@@ -14,24 +15,28 @@ export function BlogPostPage({ post }: { post: BlogPost }) {
     <BlogLayout>
       <BackLink to="/blog">All articles</BackLink>
 
-      <article className="mt-8">
-        <Reveal className="max-w-3xl">
-          <PostMeta post={post} className="gap-3" />
-          <h1 className="mt-5 text-3xl leading-[1.1] font-semibold sm:text-4xl md:text-5xl">
-            {post.title}
-          </h1>
-          <p className="mt-5 text-base leading-relaxed text-muted-foreground md:text-lg">
-            {post.description}
-          </p>
-          <TagList tags={post.tags} className="mt-6" />
-        </Reveal>
+      <div className="mt-8 lg:grid lg:grid-cols-[minmax(0,48rem)_1fr] lg:justify-between lg:gap-16">
+        <article>
+          <Reveal className="max-w-3xl">
+            <PostMeta post={post} className="gap-3" />
+            <h1 className="mt-5 text-3xl leading-[1.1] font-semibold sm:text-4xl md:text-5xl">
+              {post.title}
+            </h1>
+            <p className="mt-5 text-base leading-relaxed text-muted-foreground md:text-lg">
+              {post.description}
+            </p>
+            <TagList tags={post.tags} className="mt-6" />
+          </Reveal>
 
-        <div className="mt-14 max-w-3xl space-y-6">
-          {post.body.map((block, i) => (
-            <PostBlock key={i} block={block} />
-          ))}
-        </div>
-      </article>
+          <div className="mt-14 max-w-3xl space-y-6">
+            {post.body.map((block, i) => (
+              <PostBlock key={i} block={block} />
+            ))}
+          </div>
+        </article>
+
+        <PostToc body={post.body} />
+      </div>
 
       {others.length ? (
         <section

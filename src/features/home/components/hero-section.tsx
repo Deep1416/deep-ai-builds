@@ -5,7 +5,9 @@ import { MetricCard } from "@/features/home/components/metric-card";
 import { Reveal } from "@/components/motion/reveal";
 import { WordReveal } from "@/features/home/components/word-reveal";
 import { site } from "@/config/site";
-import { heroMetrics } from "@/features/home/data";
+import { experience, heroMetrics } from "@/features/home/data";
+
+const currentJob = experience.find((job) => /present/i.test(job.period));
 
 export function HeroSection() {
   return (
@@ -28,14 +30,21 @@ export function HeroSection() {
       <div className="container-page relative grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
         <div>
           <Reveal>
-            <p className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-surface/50 px-3 py-1.5 text-xs text-muted-foreground backdrop-blur">
-              <span
-                aria-hidden="true"
-                className="size-1.5 rounded-full bg-accent-cyan"
-                style={{ animation: "soft-pulse 2.4s ease-in-out infinite" }}
-              />
-              Available for Software Engineering &amp; AI Opportunities
-            </p>
+            <div className="flex flex-wrap items-center gap-2">
+              <p className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-surface/50 px-3 py-1.5 text-xs text-muted-foreground backdrop-blur">
+                <span
+                  aria-hidden="true"
+                  className="size-1.5 rounded-full bg-accent-cyan"
+                  style={{ animation: "soft-pulse 2.4s ease-in-out infinite" }}
+                />
+                Available for Software Engineering &amp; AI Opportunities
+              </p>
+              {currentJob ? (
+                <p className="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-3 py-1.5 text-xs text-foreground backdrop-blur">
+                  Now: {currentJob.role} at {currentJob.company}
+                </p>
+              ) : null}
+            </div>
           </Reveal>
 
           <Reveal delay={90}>

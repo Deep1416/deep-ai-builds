@@ -1,9 +1,14 @@
 import type { BlogBlock } from "@/features/blog/data";
+import { headingId } from "@/features/blog/heading-id";
 
 export function PostBlock({ block }: { block: BlogBlock }) {
   switch (block.type) {
     case "h2":
-      return <h2 className="pt-6 text-xl font-semibold sm:text-2xl">{block.text}</h2>;
+      return (
+        <h2 id={headingId(block.text)} className="pt-6 text-xl font-semibold sm:text-2xl">
+          {block.text}
+        </h2>
+      );
     case "p":
       return <p className="text-base leading-[1.8] text-muted-foreground">{block.text}</p>;
     case "list":
