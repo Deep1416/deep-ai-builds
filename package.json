@@ -4,8 +4,8 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc --noEmit && vite build && node scripts/prerender.mjs",
+    "dev": "node init && vite",
+    "build": "node init && tsc --noEmit && vite build && node scripts/prerender.mjs",
     "preview": "vite preview",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",

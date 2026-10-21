@@ -12,7 +12,7 @@ export function BlogSection() {
     <section
       id="blog"
       aria-labelledby="blog-title"
-      className="border-t border-border/60 py-24 md:py-32"
+      className="border-t border-border/60 py-28 md:py-36"
     >
       <div className="container-page">
         <SectionHeading
@@ -21,7 +21,7 @@ export function BlogSection() {
           description="Deep dives on LLM latency, AI voice architecture, FastAPI backends and retrieval systems — written from systems I have actually shipped."
         />
 
-        <ul className="mt-14 grid gap-5 md:grid-cols-3">
+        <ul className="mt-16 grid gap-6 md:grid-cols-3">
           {posts.map((post, i) => (
             <li key={post.slug}>
               <Reveal delay={i * 80} className="h-full">
@@ -50,7 +50,7 @@ export function BlogSection() {
           ))}
         </ul>
 
-        <Reveal delay={240} className="mt-10">
+        <Reveal delay={240} className="mt-12">
           <Link
             to="/blog"
             className="inline-flex items-center gap-2 rounded-lg border border-border/70 px-4 py-2.5 text-sm transition-colors hover:border-primary/50 hover:text-primary"

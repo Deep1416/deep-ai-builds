@@ -8,11 +8,11 @@ const icons = { layers: Layers, brain: Brain, server: Server } as const;
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-24 md:py-32">
+    <section id="about" className="py-28 md:py-36">
       <div className="container-page">
         <SectionHeading eyebrow="About" title="About Me" />
 
-        <div className="mt-14 grid gap-x-12 gap-y-8 lg:grid-cols-2">
+        <div className="mt-16 grid gap-x-12 gap-y-8 lg:grid-cols-2">
           {aboutParagraphs.map((paragraph, i) => (
             <Reveal key={i} delay={i * 70} className={i === 0 ? "lg:col-span-2" : ""}>
               <p
@@ -28,7 +28,7 @@ export function AboutSection() {
           ))}
         </div>
 
-        <div className="mt-14 grid gap-5 md:grid-cols-3">
+        <div className="mt-16 grid gap-6 md:grid-cols-3">
           {aboutCards.map((card, i) => {
             const Icon = icons[card.icon];
             return (

@@ -48,7 +48,7 @@ export function ExperienceTimeline() {
   }, []);
 
   return (
-    <ol ref={listRef} className="relative mt-14 space-y-10 border-l border-border/70 pl-6 sm:pl-10">
+    <ol ref={listRef} className="relative mt-16 space-y-10 border-l border-border/70 pl-6 sm:pl-10">
       <span
         ref={fillRef}
         aria-hidden="true"
