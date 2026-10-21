@@ -21,7 +21,7 @@ export function BlogSection() {
           description="Deep dives on LLM latency, AI voice architecture, FastAPI backends and retrieval systems — written from systems I have actually shipped."
         />
 
-        <ul className="mt-14 grid gap-4 md:grid-cols-3">
+        <ul className="mt-14 grid gap-5 md:grid-cols-3">
           {posts.map((post, i) => (
             <li key={post.slug}>
               <Reveal delay={i * 80} className="h-full">

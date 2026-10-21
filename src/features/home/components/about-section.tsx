@@ -12,7 +12,7 @@ export function AboutSection() {
       <div className="container-page">
         <SectionHeading eyebrow="About" title="About Me" />
 
-        <div className="mt-10 grid gap-x-12 gap-y-8 lg:grid-cols-2">
+        <div className="mt-14 grid gap-x-12 gap-y-8 lg:grid-cols-2">
           {aboutParagraphs.map((paragraph, i) => (
             <Reveal key={i} delay={i * 70} className={i === 0 ? "lg:col-span-2" : ""}>
               <p

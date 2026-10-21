@@ -4,7 +4,7 @@ export function TechMarquee() {
   const row = [...marqueeTech, ...marqueeTech];
 
   return (
-    <div className="relative border-y border-border/70 bg-surface/30 py-5">
+    <div className="relative border-y border-border/70 bg-surface/30 py-8">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-background to-transparent"

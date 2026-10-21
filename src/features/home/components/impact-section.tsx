@@ -6,7 +6,7 @@ import { impactNumbers } from "@/features/home/data";
 
 export function ImpactSection() {
   return (
-    <section className="border-t border-border/60 py-24 md:py-32">
+    <section className="border-t border-border/60 bg-surface/25 py-24 md:py-32">
       <div className="container-page">
         <SectionHeading eyebrow="Impact" title="Engineering in Numbers" />
         <Reveal delay={60} className="mt-14">
