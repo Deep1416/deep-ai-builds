@@ -952,7 +952,7 @@ npm run lint
 
 | Variable | Purpose |
 | --- | --- |
-| `VITE_SITE_URL` | Public origin (no trailing slash). Used for canonical/OG URLs, JSON-LD, `sitemap.xml` and the `robots.txt` sitemap line. When unset, those are omitted and the build warns. See `.env.example`. |
+| `VITE_SITE_URL` | Public origin (no trailing slash). Used for canonical/OG URLs, `og:image`, JSON-LD, `sitemap.xml`, `feed.xml` and the `robots.txt` sitemap line. When unset, those are omitted and the build warns. See `.env.example`. |
 
 ### Structure
 
@@ -963,5 +963,5 @@ src/
 ├── features/     home, projects, blog, contact — components, data, SEO per feature
 ├── components/   shared only: ui/, layout/, motion/, common/, feedback/
 ├── hooks/  lib/  config/
-scripts/prerender.mjs   post-build: per-route <head>, sitemap.xml, robots.txt
+scripts/prerender.mjs   post-build: static HTML per route (content + head + JSON-LD), 404.html, sitemap.xml, feed.xml, robots.txt
 ```

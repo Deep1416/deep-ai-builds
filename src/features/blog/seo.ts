@@ -1,5 +1,5 @@
 import { site } from "@/config/site";
-import { absoluteUrl, buildHead } from "@/lib/seo";
+import { OG_IMAGE_PATH, absoluteUrl, buildHead, type PageHead } from "@/lib/seo";
 import { blogMeta, sortedPosts, type BlogPost } from "@/features/blog/data";
 
 const author = (withUrl: boolean) => ({
@@ -49,6 +49,8 @@ export const blogPostHead = (post: BlogPost) => {
       { name: "keywords", content: post.tags.join(", ") },
       { property: "article:published_time", content: post.date },
       { property: "article:author", content: site.name },
+      ...(post.updated ? [{ property: "article:modified_time", content: post.updated }] : []),
+      ...post.tags.map((tag) => ({ property: "article:tag", content: tag })),
     ],
     jsonLd: [
       {
@@ -59,6 +61,8 @@ export const blogPostHead = (post: BlogPost) => {
         datePublished: post.date,
         dateModified: post.updated ?? post.date,
         keywords: post.tags.join(", "),
+        image: absoluteUrl(OG_IMAGE_PATH),
+        inLanguage: "en",
         mainEntityOfPage: { "@type": "WebPage", "@id": url },
         author: author(true),
         publisher: author(true),
@@ -76,6 +80,8 @@ export const blogPostHead = (post: BlogPost) => {
   });
 };
 
-export const postUnavailableHead = () => ({
+export const postUnavailableHead = (): PageHead => ({
   meta: [{ title: `Article unavailable — ${site.name}` }, { name: "robots", content: "noindex" }],
+  links: [],
+  scripts: [],
 });
