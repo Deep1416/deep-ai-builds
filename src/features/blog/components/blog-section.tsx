@@ -9,7 +9,11 @@ export function BlogSection() {
   const posts = sortedPosts.slice(0, 3);
 
   return (
-    <section id="blog" aria-labelledby="blog-title" className="section-y">
+    <section
+      id="blog"
+      aria-labelledby="blog-title"
+      className="border-t border-border/60 py-24 md:py-32"
+    >
       <div className="container-page">
         <SectionHeading
           eyebrow="Writing"

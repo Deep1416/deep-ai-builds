@@ -7,7 +7,7 @@ const icons = { sparkles: Sparkles, phone: PhoneCall, database: Database, gauge:
 
 export function AiEngineeringSection() {
   return (
-    <section className="relative scroll-mt-24 overflow-hidden border-t border-border/60 py-24 md:py-32">
+    <section className="relative overflow-hidden border-t border-border/60 py-24 md:py-32">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 opacity-70 glow-hero"

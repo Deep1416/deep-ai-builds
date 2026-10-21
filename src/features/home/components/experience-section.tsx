@@ -3,10 +3,7 @@ import { SectionHeading } from "@/components/common/section-heading";
 
 export function ExperienceSection() {
   return (
-    <section
-      id="experience"
-      className="scroll-mt-24 border-t border-border/60 bg-surface/25 py-24 md:py-32"
-    >
+    <section id="experience" className="border-t border-border/60 bg-surface/25 py-24 md:py-32">
       <div className="container-page">
         <SectionHeading
           eyebrow="Experience"

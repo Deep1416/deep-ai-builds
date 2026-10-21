@@ -8,7 +8,7 @@ const icons = { layers: Layers, brain: Brain, server: Server } as const;
 
 export function AboutSection() {
   return (
-    <section id="about" className="scroll-mt-24 py-24 md:py-32">
+    <section id="about" className="py-24 md:py-32">
       <div className="container-page">
         <SectionHeading eyebrow="About" title="About Me" />
 

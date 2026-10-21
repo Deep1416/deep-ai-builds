@@ -9,7 +9,7 @@ export function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative scroll-mt-24 overflow-hidden border-t border-border/60 py-24 md:py-32"
+      className="relative overflow-hidden border-t border-border/60 py-24 md:py-32"
     >
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 glow-hero" />
       <div className="container-page relative grid gap-12 lg:grid-cols-[1fr_1fr] lg:gap-16">

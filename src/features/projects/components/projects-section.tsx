@@ -4,7 +4,7 @@ import { projects } from "@/features/projects/data";
 
 export function ProjectsSection() {
   return (
-    <section id="projects" className="scroll-mt-24 border-t border-border/60 py-24 md:py-32">
+    <section id="projects" className="border-t border-border/60 py-24 md:py-32">
       <div className="container-page">
         <SectionHeading
           eyebrow="Selected work"
