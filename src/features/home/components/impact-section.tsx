@@ -6,10 +6,10 @@ import { impactNumbers } from "@/features/home/data";
 
 export function ImpactSection() {
   return (
-    <section className="border-t border-border/60 bg-surface/25 py-24 md:py-32">
+    <section className="border-t border-border/60 bg-surface/25 py-28 md:py-36">
       <div className="container-page">
         <SectionHeading eyebrow="Impact" title="Engineering in Numbers" />
-        <Reveal delay={60} className="mt-14">
+        <Reveal delay={60} className="mt-16">
           <dl className="surface-card grid grid-cols-2 overflow-hidden lg:grid-cols-4">
             {impactNumbers.map((item) => (
               <div

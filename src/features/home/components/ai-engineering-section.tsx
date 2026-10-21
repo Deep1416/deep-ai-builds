@@ -7,7 +7,7 @@ const icons = { sparkles: Sparkles, phone: PhoneCall, database: Database, gauge:
 
 export function AiEngineeringSection() {
   return (
-    <section className="relative overflow-hidden border-t border-border/60 bg-surface/25 py-24 md:py-32">
+    <section className="relative overflow-hidden border-t border-border/60 bg-surface/25 py-28 md:py-36">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 opacity-70 glow-hero"
@@ -19,7 +19,7 @@ export function AiEngineeringSection() {
           description="Moving beyond demos and prototypes to AI systems that handle real users, latency constraints, reliability requirements, and production traffic."
         />
 
-        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {aiCards.map((card, i) => {
             const Icon = icons[card.icon];
             return (

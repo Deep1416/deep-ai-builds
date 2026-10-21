@@ -8,10 +8,10 @@ const icons = [Trophy, Award, GraduationCap] as const;
 
 export function AchievementsSection() {
   return (
-    <section id="achievements" className="border-t border-border/60 bg-surface/25 py-24 md:py-32">
+    <section id="achievements" className="border-t border-border/60 bg-surface/25 py-28 md:py-36">
       <div className="container-page">
         <SectionHeading eyebrow="Recognition" title="Achievements" />
-        <div className="mt-14 grid gap-5 md:grid-cols-3">
+        <div className="mt-16 grid gap-6 md:grid-cols-3">
           {achievements.map((item, i) => {
             const Icon = icons[i % icons.length] ?? Trophy;
             return (
@@ -24,7 +24,7 @@ export function AchievementsSection() {
           })}
         </div>
 
-        <Reveal delay={80} className="mt-14">
+        <Reveal delay={80} className="mt-16">
           <h3 className="font-mono text-xs tracking-[0.2em] text-muted-foreground uppercase">
             Education
           </h3>
