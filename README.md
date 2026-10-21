@@ -953,6 +953,8 @@ npm run lint
 | Variable | Purpose |
 | --- | --- |
 | `VITE_SITE_URL` | Public origin (no trailing slash). Used for canonical/OG URLs, `og:image`, JSON-LD, `sitemap.xml`, `feed.xml` and the `robots.txt` sitemap line. When unset, those are omitted and the build warns. See `.env.example`. |
+| `VITE_CONTACT_FORM_ENDPOINT` | Optional. Where the contact form POSTs. Defaults to FormSubmit (forwards to the site email; the first message triggers a one-time confirmation email). Use a Formspree or Web3Forms URL to change provider. |
+| `VITE_CONTACT_FORM_ACCESS_KEY` | Optional. Sent as `access_key` (Web3Forms). |
 
 ### Structure
 

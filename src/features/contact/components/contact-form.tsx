@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { site } from "@/config/site";
+import { sendContactMessage } from "@/features/contact/services/send-message";
 
 type Errors = Partial<Record<"name" | "email" | "message", string>>;
 type Status = "idle" | "loading" | "success" | "error";
@@ -28,7 +29,7 @@ export function ContactForm() {
     setErrors((prev) => ({ ...prev, [key]: undefined }));
   };
 
-  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const nextErrors = validate(values);
     setErrors(nextErrors);
@@ -38,11 +39,7 @@ export function ContactForm() {
     }
     setStatus("loading");
     try {
-      const subject = encodeURIComponent(`Portfolio enquiry from ${values.name.trim()}`);
-      const body = encodeURIComponent(
-        `${values.message.trim()}\n\n— ${values.name.trim()} (${values.email.trim()})`,
-      );
-      window.location.href = `mailto:${site.email}?subject=${subject}&body=${body}`;
+      await sendContactMessage(values);
       setStatus("success");
     } catch {
       setStatus("error");
@@ -53,14 +50,9 @@ export function ContactForm() {
     return (
       <div role="status" className="surface-card flex flex-col items-start gap-3 p-6 sm:p-8">
         <CheckCircle2 className="size-6 text-primary" aria-hidden="true" />
-        <h3 className="text-lg font-semibold">Message ready to send</h3>
+        <h3 className="text-lg font-semibold">Message sent</h3>
         <p className="text-sm text-muted-foreground">
-          Your email client should have opened with the message prefilled. If it didn&apos;t, write
-          directly to{" "}
-          <a className="text-foreground underline underline-offset-4" href={`mailto:${site.email}`}>
-            {site.email}
-          </a>
-          .
+          Thanks, {values.name.trim()} — I&apos;ll reply to {values.email.trim()} soon.
         </p>
         <Button
           variant="subtle"
@@ -152,7 +144,20 @@ export function ContactForm() {
       </Button>
       {status === "error" && Object.keys(errors).length === 0 ? (
         <p role="alert" className="text-xs text-destructive">
-          Something went wrong. Please email {site.email} directly.
+          Couldn&apos;t send your message. Please email{" "}
+          <a className="underline underline-offset-4" href={`mailto:${site.email}`}>
+            {site.email}
+          </a>{" "}
+          or message me on{" "}
+          <a
+            className="underline underline-offset-4"
+            href={site.whatsapp}
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            WhatsApp
+          </a>
+          .
         </p>
       ) : null}
     </form>
