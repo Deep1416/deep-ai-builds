@@ -30,6 +30,14 @@ export function SiteFooter() {
             LinkedIn
           </a>
           <a
+            href={site.whatsapp}
+            target="_blank"
+            rel="noreferrer noopener"
+            className="text-muted-foreground transition-colors hover:text-foreground"
+          >
+            WhatsApp
+          </a>
+          <a
             href={`mailto:${site.email}`}
             className="text-muted-foreground transition-colors hover:text-foreground"
           >

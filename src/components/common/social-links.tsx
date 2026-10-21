@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail, MessageCircle } from "lucide-react";
 import { site } from "@/config/site";
 import { cn } from "@/lib/utils";
 
@@ -11,7 +11,12 @@ export function SocialLinks({ className, withEmail = false }: Props) {
   const links = [
     { href: site.github, label: "GitHub profile", Icon: Github },
     { href: site.linkedin, label: "LinkedIn profile", Icon: Linkedin },
-    ...(withEmail ? [{ href: `mailto:${site.email}`, label: "Send an email", Icon: Mail }] : []),
+    ...(withEmail
+      ? [
+          { href: site.whatsapp, label: "Message on WhatsApp", Icon: MessageCircle },
+          { href: `mailto:${site.email}`, label: "Send an email", Icon: Mail },
+        ]
+      : []),
   ];
 
   return (
