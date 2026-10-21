@@ -3,8 +3,6 @@
 export const site = {
   name: "Deependra Rajput",
   initials: "DR",
-  title: "Full Stack Developer | AI Engineer",
-  heroTitle: "Building Scalable Products & Production AI Systems",
   location: "Gwalior, Madhya Pradesh, India",
   summary:
     "Full Stack Developer with 3+ years of experience building and deploying LLM-powered applications, generative AI pipelines, AI voice automation systems, scalable APIs, and modern web applications using Python, FastAPI, React, Next.js, Node.js, PostgreSQL, Redis, and cloud technologies.",
