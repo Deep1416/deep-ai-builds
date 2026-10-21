@@ -14,7 +14,16 @@ export function SectionHeading({ eyebrow, title, description, align = "left", cl
   return (
     <Reveal className={cn("max-w-3xl", align === "center" && "mx-auto text-center", className)}>
       {eyebrow ? (
-        <p className="mb-4 font-mono text-xs tracking-[0.2em] text-muted-foreground uppercase">
+        <p
+          className={cn(
+            "mb-4 flex items-center gap-3 font-mono text-xs tracking-[0.2em] text-muted-foreground uppercase",
+            align === "center" && "justify-center",
+          )}
+        >
+          <span
+            aria-hidden="true"
+            className="h-px w-8 bg-gradient-to-r from-primary to-transparent"
+          />
           {eyebrow}
         </p>
       ) : null}

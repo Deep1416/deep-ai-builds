@@ -1,5 +1,6 @@
 import { Award, GraduationCap, Trophy } from "lucide-react";
 import { Reveal } from "@/components/motion/reveal";
+import { IconBadge } from "@/components/common/icon-badge";
 import { SectionHeading } from "@/components/common/section-heading";
 import { achievements, education } from "@/features/home/data";
 
@@ -7,7 +8,10 @@ const icons = [Trophy, Award, GraduationCap] as const;
 
 export function AchievementsSection() {
   return (
-    <section id="achievements" className="scroll-mt-24 border-t border-border/60 py-24 md:py-32">
+    <section
+      id="achievements"
+      className="scroll-mt-24 border-t border-border/60 bg-surface/25 py-24 md:py-32"
+    >
       <div className="container-page">
         <SectionHeading eyebrow="Recognition" title="Achievements" />
         <div className="mt-14 grid gap-5 md:grid-cols-3">
@@ -15,7 +19,7 @@ export function AchievementsSection() {
             const Icon = icons[i % icons.length] ?? Trophy;
             return (
               <Reveal key={item.title} delay={i * 70} className="surface-card h-full p-6">
-                <Icon className="size-5 text-primary" aria-hidden="true" />
+                <IconBadge icon={Icon} />
                 <h3 className="mt-5 text-lg font-semibold">{item.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.body}</p>
               </Reveal>

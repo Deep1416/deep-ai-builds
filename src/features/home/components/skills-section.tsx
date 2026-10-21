@@ -4,7 +4,10 @@ import { skillGroups } from "@/features/home/data";
 
 export function SkillsSection() {
   return (
-    <section id="skills" className="scroll-mt-24 border-t border-border/60 py-24 md:py-32">
+    <section
+      id="skills"
+      className="scroll-mt-24 border-t border-border/60 bg-surface/25 py-24 md:py-32"
+    >
       <div className="container-page">
         <SectionHeading
           eyebrow="Toolkit"
