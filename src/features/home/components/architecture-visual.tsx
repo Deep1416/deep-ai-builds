@@ -28,7 +28,10 @@ export function ArchitectureVisual() {
       <ol className="relative mt-5 space-y-2.5" aria-label="System architecture layers">
         {architectureStack.map((node, i) => (
           <li key={node.label} className="relative">
-            <div className="group flex items-center gap-3 rounded-xl border border-border/70 bg-background/40 px-4 py-3 transition-colors hover:border-primary/45">
+            <div
+              className="group stack-row flex items-center gap-3 rounded-xl border border-border/70 bg-background/40 px-4 py-3 transition-colors hover:border-primary/45"
+              style={{ animationDelay: `${i * 0.5}s` }}
+            >
               <span className="font-mono text-[0.7rem] text-muted-foreground">
                 {String(i + 1).padStart(2, "0")}
               </span>

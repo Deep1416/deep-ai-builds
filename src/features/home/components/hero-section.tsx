@@ -1,4 +1,4 @@
-import { ArrowRight, MapPin } from "lucide-react";
+import { ArrowRight, ChevronDown, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ArchitectureVisual } from "@/features/home/components/architecture-visual";
 import { MetricCard } from "@/features/home/components/metric-card";
@@ -99,6 +99,17 @@ export function HeroSection() {
           </div>
         </Reveal>
       </div>
+      <a
+        href="#about"
+        className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-1 font-mono text-[0.65rem] tracking-[0.2em] text-muted-foreground uppercase transition-colors hover:text-foreground md:flex"
+      >
+        Scroll
+        <ChevronDown
+          className="scroll-cue size-4"
+          aria-hidden="true"
+          style={{ animation: "scroll-cue 2s ease-in-out infinite" }}
+        />
+      </a>
     </section>
   );
 }

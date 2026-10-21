@@ -564,3 +564,41 @@
     animation: none;
   }
 }
+
+/* Request pulse travelling down the architecture stack (hero). */
+@keyframes stack-pulse {
+  0%,
+  16%,
+  100% {
+    border-color: var(--border);
+    background-color: color-mix(in oklab, var(--background) 40%, transparent);
+  }
+  4%,
+  10% {
+    border-color: color-mix(in oklab, var(--primary) 75%, transparent);
+    background-color: color-mix(in oklab, var(--primary) 12%, transparent);
+  }
+}
+
+@utility stack-row {
+  animation: stack-pulse 5.6s ease-in-out infinite;
+}
+
+@keyframes scroll-cue {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(5px);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stack-row,
+  .scroll-cue {
+    animation: none;
+  }
+}
