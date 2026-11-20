@@ -224,16 +224,6 @@ export const skillGroups = [
   },
 ] as const;
 
-export const impactNumbers = [
-  { value: 3, suffix: "+", label: "Years Building Products" },
-  { value: 3, suffix: "K+", label: "Daily AI Calls" },
-  { value: 500, suffix: "+", label: "Daily AI Conversations" },
-  { value: 40, suffix: "%", label: "Lower LLM Latency" },
-  { value: 85, suffix: "%+", label: "AI Pipeline Test Coverage" },
-  { value: 50, suffix: "+", label: "Engineers Mentored" },
-  { value: 300, suffix: "+", label: "DSA Problems Solved" },
-] as const;
-
 export const achievements = [
   {
     title: "300+ DSA Problems",

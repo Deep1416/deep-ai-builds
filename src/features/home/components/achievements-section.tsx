@@ -8,7 +8,7 @@ const icons = [Trophy, Award, GraduationCap] as const;
 
 export function AchievementsSection() {
   return (
-    <section id="achievements" className="border-t border-border/60 bg-surface/25 py-28 md:py-36">
+    <section id="achievements" className="border-t border-border/60 py-28 md:py-36">
       <div className="container-page">
         <SectionHeading eyebrow="Recognition" title="Achievements" />
         <div className="mt-16 grid gap-6 md:grid-cols-3">
