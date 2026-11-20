@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { SocialLinks } from "@/components/common/social-links";

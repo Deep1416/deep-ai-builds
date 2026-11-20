@@ -1,5 +1,5 @@
 import { site } from "@/config/site";
-import { OG_IMAGE_PATH, absoluteUrl, buildHead } from "@/lib/seo";
+import { OG_IMAGE_PATH, absoluteUrl, buildMetadata } from "@/lib/seo";
 
 const personId = absoluteUrl("/#person");
 const personSchema = {
@@ -47,11 +47,11 @@ const websiteSchema = {
   author: personId ? { "@id": personId } : { "@type": "Person", name: site.name },
 };
 
-export const homeHead = () =>
-  buildHead({
-    title: site.seo.title,
-    description: site.seo.description,
-    path: "/",
-    ogType: "profile",
-    jsonLd: [personSchema, websiteSchema],
-  });
+export const homeMetadata = buildMetadata({
+  title: site.seo.title,
+  description: site.seo.description,
+  path: "/",
+  ogType: "profile",
+});
+
+export const homeJsonLd = [personSchema, websiteSchema];

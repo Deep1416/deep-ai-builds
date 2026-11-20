@@ -12,8 +12,8 @@ export const site = {
   whatsapp: `https://wa.me/916263186037?text=${encodeURIComponent("Hi Deependra, I found your portfolio and would like to connect.")}`,
   github: "https://github.com/Deep1416",
   linkedin: "https://linkedin.com/in/deependra14",
-  /** Canonical origin from VITE_SITE_URL; empty until a production domain is configured. */
-  url: (import.meta.env.VITE_SITE_URL ?? "").replace(/\/+$/, ""),
+  /** Canonical origin from NEXT_PUBLIC_SITE_URL; empty until a production domain is configured. */
+  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "").replace(/\/+$/, ""),
   seo: {
     title: "Deependra Rajput | Full Stack Developer & AI Engineer",
     description:

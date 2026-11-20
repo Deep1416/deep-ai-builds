@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button-variants";
 
 export function NotFound() {
@@ -11,7 +11,7 @@ export function NotFound() {
           The page you&apos;re looking for doesn&apos;t exist or has been moved.
         </p>
         <div className="mt-6">
-          <Link to="/" className={buttonVariants()}>
+          <Link href="/" className={buttonVariants()}>
             Go home
           </Link>
         </div>

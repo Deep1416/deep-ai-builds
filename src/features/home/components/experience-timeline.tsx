@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useRef } from "react";
 import { Reveal } from "@/components/motion/reveal";
 import { experience } from "@/features/home/data";

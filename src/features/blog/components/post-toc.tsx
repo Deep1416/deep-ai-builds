@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import { headingId } from "@/features/blog/heading-id";
 import type { BlogPost } from "@/features/blog/data";

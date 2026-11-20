@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { SectionHeading } from "@/components/common/section-heading";
 import { Reveal } from "@/components/motion/reveal";
@@ -26,8 +26,7 @@ export function BlogSection() {
             <li key={post.slug}>
               <Reveal delay={i * 80} className="h-full">
                 <Link
-                  to="/blog/$slug"
-                  params={{ slug: post.slug }}
+                  href={`/blog/${post.slug}`}
                   className="hover-lift spotlight group flex h-full flex-col rounded-2xl border border-border/70 bg-surface/60 p-6 transition-colors hover:border-primary/40"
                 >
                   <PostMeta post={post} className="gap-2" />
@@ -52,7 +51,7 @@ export function BlogSection() {
 
         <Reveal delay={240} className="mt-12">
           <Link
-            to="/blog"
+            href="/blog"
             className="inline-flex items-center gap-2 rounded-lg border border-border/70 px-4 py-2.5 text-sm transition-colors hover:border-primary/50 hover:text-primary"
           >
             View all articles
