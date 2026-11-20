@@ -1,5 +1,5 @@
 import { site } from "@/config/site";
-import { blogMeta, sortedPosts } from "@/features/blog/data";
+import { blogMeta, getPosts } from "@/features/blog/data";
 
 export const dynamic = "force-static";
 
@@ -10,7 +10,7 @@ export function GET() {
   // Feed links must be absolute; there is no feed until NEXT_PUBLIC_SITE_URL is set.
   if (!site.url) return new Response("Not found", { status: 404 });
 
-  const items = sortedPosts.map((post) =>
+  const items = getPosts().map((post) =>
     [
       "    <item>",
       `      <title>${xmlEscape(post.title)}</title>`,

@@ -11,6 +11,7 @@ Next.js (App Router) + React + TypeScript, Tailwind CSS v4. Package manager: **n
 - Routes in `src/app/` stay thin: `metadata` (and JSON-LD) plus a page component imported from `src/features/`.
 - Components are Server Components by default; add `"use client"` only to components that use state, effects, browser APIs or event handlers.
 - Feature code (components, data, SEO, types) lives under `src/features/<feature>/`. Only code genuinely used by more than one feature moves to `src/components/`, `src/hooks/` or `src/lib/`.
+- Blog posts are Markdown in `content/blog/`, loaded by `src/features/blog/data.ts` (server-only). Don't put post content in TypeScript.
 - Don't create folders (`services/`, `types/`, `utils/`, …) until the app actually needs them.
 - Public site origin comes from `NEXT_PUBLIC_SITE_URL`; never hardcode a domain.
 

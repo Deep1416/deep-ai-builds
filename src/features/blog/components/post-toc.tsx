@@ -2,12 +2,10 @@
 
 import { useEffect, useState } from "react";
 import { headingId } from "@/features/blog/heading-id";
-import type { BlogPost } from "@/features/blog/data";
 import { cn } from "@/lib/utils";
 
 /** Sticky "On this page" list for long articles. Hidden below lg. */
-export function PostToc({ body }: { body: BlogPost["body"] }) {
-  const headings = body.flatMap((block) => (block.type === "h2" ? [block.text] : []));
+export function PostToc({ headings }: { headings: readonly string[] }) {
   const [active, setActive] = useState<string | null>(null);
 
   useEffect(() => {
@@ -24,9 +22,7 @@ export function PostToc({ body }: { body: BlogPost["body"] }) {
     );
     targets.forEach((target) => observer.observe(target));
     return () => observer.disconnect();
-    // headings is derived from body, which is stable for a given post
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [body]);
+  }, [headings]);
 
   if (headings.length < 2) return null;
 

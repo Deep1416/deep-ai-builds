@@ -3,10 +3,10 @@ import { ArrowUpRight } from "lucide-react";
 import { SectionHeading } from "@/components/common/section-heading";
 import { Reveal } from "@/components/motion/reveal";
 import { PostMeta } from "@/features/blog/components/post-meta";
-import { sortedPosts } from "@/features/blog/data";
+import { getPosts } from "@/features/blog/data";
 
 export function BlogSection() {
-  const posts = sortedPosts.slice(0, 3);
+  const posts = getPosts().slice(0, 3);
 
   return (
     <section

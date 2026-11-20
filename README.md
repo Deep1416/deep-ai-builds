@@ -949,6 +949,35 @@ npm run lint
 npm run typecheck
 ```
 
+### Writing a blog post
+
+Posts are Markdown files in `content/blog/`. The file name is the URL: `content/blog/my-post.md` → `/blog/my-post`.
+
+1. Create a post (fills in today's date):
+
+   ```sh
+   npm run new-post "My post title"
+   ```
+
+2. Edit the new file. The block at the top is the post's settings:
+
+   ```md
+   ---
+   title: "My post title"
+   description: "One or two sentences shown on the blog list and in search results."
+   date: "2026-11-21"
+   tags: [LLM, FastAPI]
+   draft: true # remove (or set false) to publish
+   ---
+   ```
+
+   Below it, write normal Markdown: `##` headings (these build the "On this page" menu), lists, links, tables, `inline code` and fenced code blocks. For images, put the file in `public/blog/` and use `![Alt text](/blog/my-image.png)`.
+
+3. Preview with `npm run dev`. Drafts are hidden, so set `draft: false` (or delete the line) to see the post.
+4. Commit and push. The site rebuilds and the post appears on `/blog`, in the sitemap and RSS feed. The home page always shows the 3 newest posts with a link to all of them.
+
+Optional fields: `updated: "2026-11-25"` when you revise a post. Reading time is calculated automatically; override it with `readingTime: "5 min read"`.
+
 ### Configuration
 
 | Variable | Purpose |
@@ -966,4 +995,6 @@ src/
 ├── features/     home, projects, blog, contact — components, data, SEO per feature
 ├── components/   shared only: ui/, layout/, motion/, common/, feedback/
 ├── hooks/  lib/  config/
+content/blog/     blog posts as Markdown (see "Writing a blog post")
+scripts/new-post.mjs   `npm run new-post "Title"` scaffolds a post
 ```

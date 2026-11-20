@@ -5,7 +5,7 @@ import { BackLink } from "@/features/blog/components/back-link";
 import { BlogLayout } from "@/features/blog/components/blog-layout";
 import { PostMeta } from "@/features/blog/components/post-meta";
 import { TagList } from "@/features/blog/components/tag-list";
-import { blogMeta, sortedPosts } from "@/features/blog/data";
+import { blogMeta, getPosts } from "@/features/blog/data";
 
 export function BlogIndexPage() {
   return (
@@ -25,7 +25,7 @@ export function BlogIndexPage() {
       </Reveal>
 
       <ul className="mt-16 space-y-4">
-        {sortedPosts.map((post, i) => (
+        {getPosts().map((post, i) => (
           <li key={post.slug}>
             <Reveal delay={i * 70}>
               <Link

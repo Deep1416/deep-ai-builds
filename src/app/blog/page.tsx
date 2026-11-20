@@ -7,7 +7,7 @@ export const metadata = blogIndexMetadata;
 export default function Page() {
   return (
     <>
-      <JsonLd data={blogIndexJsonLd} />
+      <JsonLd data={blogIndexJsonLd()} />
       <BlogIndexPage />
     </>
   );
