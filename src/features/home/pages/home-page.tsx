@@ -9,7 +9,6 @@ import { AchievementsSection } from "@/features/home/components/achievements-sec
 import { AiEngineeringSection } from "@/features/home/components/ai-engineering-section";
 import { ExperienceSection } from "@/features/home/components/experience-section";
 import { HeroSection } from "@/features/home/components/hero-section";
-import { ImpactSection } from "@/features/home/components/impact-section";
 import { PageLoader } from "@/features/home/components/page-loader";
 import { SkillsSection } from "@/features/home/components/skills-section";
 import { TechMarquee } from "@/features/home/components/tech-marquee";
@@ -36,7 +35,6 @@ export function HomePage() {
         <ProjectsSection />
         <AiEngineeringSection />
         <SkillsSection />
-        <ImpactSection />
         <BlogSection />
         <AchievementsSection />
         <ContactSection />

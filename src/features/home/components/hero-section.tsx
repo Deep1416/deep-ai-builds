@@ -31,14 +31,6 @@ export function HeroSection() {
         <div>
           <Reveal>
             <div className="flex flex-wrap items-center gap-2">
-              <p className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-surface/50 px-3 py-1.5 text-xs text-muted-foreground backdrop-blur">
-                <span
-                  aria-hidden="true"
-                  className="size-1.5 rounded-full bg-accent-cyan"
-                  style={{ animation: "soft-pulse 2.4s ease-in-out infinite" }}
-                />
-                Available for Software Engineering &amp; AI Opportunities
-              </p>
               {currentJob ? (
                 <p className="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-3 py-1.5 text-xs text-foreground backdrop-blur">
                   Now: {currentJob.role} at {currentJob.company}
