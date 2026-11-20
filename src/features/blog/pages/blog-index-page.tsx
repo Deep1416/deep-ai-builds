@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/motion/reveal";
 import { BackLink } from "@/features/blog/components/back-link";
@@ -29,8 +29,7 @@ export function BlogIndexPage() {
           <li key={post.slug}>
             <Reveal delay={i * 70}>
               <Link
-                to="/blog/$slug"
-                params={{ slug: post.slug }}
+                href={`/blog/${post.slug}`}
                 className="hover-lift spotlight group block rounded-2xl border border-border/70 bg-surface/60 p-6 transition-colors hover:border-primary/40 sm:p-8"
               >
                 <PostMeta post={post} className="gap-3" />

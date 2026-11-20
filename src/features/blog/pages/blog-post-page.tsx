@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import Link from "next/link";
 import { Reveal } from "@/components/motion/reveal";
 import { BackLink } from "@/features/blog/components/back-link";
 import { BlogLayout } from "@/features/blog/components/blog-layout";
@@ -53,8 +53,7 @@ export function BlogPostPage({ post }: { post: BlogPost }) {
             {others.map((p) => (
               <li key={p.slug}>
                 <Link
-                  to="/blog/$slug"
-                  params={{ slug: p.slug }}
+                  href={`/blog/${p.slug}`}
                   className="hover-lift block rounded-xl border border-border/70 bg-surface/60 p-5 transition-colors hover:border-primary/40"
                 >
                   <span className="text-base font-medium">{p.title}</span>

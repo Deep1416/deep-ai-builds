@@ -938,32 +938,32 @@ Generate the complete responsive portfolio with polished desktop and mobile layo
 
 ## Development
 
-Requires Node.js 20+ and npm.
+Built with Next.js (App Router), React, TypeScript and Tailwind CSS v4. Requires Node.js 20.9+ and npm.
 
 ```sh
 npm install
 npm run dev        # local dev server
-npm run build      # typecheck, bundle, then prerender per-route <head> tags
-npm run preview    # serve the production build
+npm run build      # production build; every page is prerendered as static HTML
+npm run start      # serve the production build
 npm run lint
+npm run typecheck
 ```
 
 ### Configuration
 
 | Variable | Purpose |
 | --- | --- |
-| `VITE_SITE_URL` | Public origin (no trailing slash). Used for canonical/OG URLs, `og:image`, JSON-LD, `sitemap.xml`, `feed.xml` and the `robots.txt` sitemap line. When unset, those are omitted and the build warns. See `.env.example`. |
-| `VITE_CONTACT_FORM_ENDPOINT` | Optional. Where the contact form POSTs. Defaults to FormSubmit (forwards to the site email; the first message triggers a one-time confirmation email). Use a Formspree or Web3Forms URL to change provider. |
-| `VITE_CONTACT_FORM_ACCESS_KEY` | Optional. Sent as `access_key` (Web3Forms). |
+| `NEXT_PUBLIC_SITE_URL` | Public origin (no trailing slash). Used for canonical/OG URLs, `og:image`, JSON-LD, `sitemap.xml`, `feed.xml` and the `robots.txt` sitemap line. When unset, those are omitted (the sitemap is empty and `/feed.xml` returns 404). See `.env.example`. |
+| `NEXT_PUBLIC_CONTACT_FORM_ENDPOINT` | Optional. Where the contact form POSTs. Defaults to FormSubmit (forwards to the site email; the first message triggers a one-time confirmation email). Use a Formspree or Web3Forms URL to change provider. |
+| `NEXT_PUBLIC_CONTACT_FORM_ACCESS_KEY` | Optional. Sent as `access_key` (Web3Forms). |
 
 ### Structure
 
 ```
 src/
-├── app/          app bootstrap and router instance
-├── routes/       thin TanStack Router file routes (head + page component only)
+├── app/          Next.js App Router: thin pages (metadata + page component), layout,
+│                 not-found/error, sitemap.ts, robots.ts, feed.xml route
 ├── features/     home, projects, blog, contact — components, data, SEO per feature
 ├── components/   shared only: ui/, layout/, motion/, common/, feedback/
 ├── hooks/  lib/  config/
-scripts/prerender.mjs   post-build: static HTML per route (content + head + JSON-LD), 404.html, sitemap.xml, feed.xml, robots.txt
 ```

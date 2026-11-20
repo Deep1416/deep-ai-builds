@@ -5,11 +5,11 @@ export type ContactMessage = { name: string; email: string; message: string };
 /**
  * Where messages are posted. Defaults to FormSubmit, which forwards the message to
  * the site email (the first submission asks the inbox owner to confirm once).
- * Override with VITE_CONTACT_FORM_ENDPOINT to use Formspree, Web3Forms, etc.
+ * Override with NEXT_PUBLIC_CONTACT_FORM_ENDPOINT to use Formspree, Web3Forms, etc.
  */
 const endpoint =
-  import.meta.env.VITE_CONTACT_FORM_ENDPOINT || `https://formsubmit.co/ajax/${site.email}`;
-const accessKey = import.meta.env.VITE_CONTACT_FORM_ACCESS_KEY;
+  process.env.NEXT_PUBLIC_CONTACT_FORM_ENDPOINT || `https://formsubmit.co/ajax/${site.email}`;
+const accessKey = process.env.NEXT_PUBLIC_CONTACT_FORM_ACCESS_KEY;
 
 export async function sendContactMessage({ name, email, message }: ContactMessage): Promise<void> {
   const response = await fetch(endpoint, {

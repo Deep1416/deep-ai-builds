@@ -1,17 +1,18 @@
 # Project guidelines
 
-Vite + React + TypeScript + TanStack Router (client-side), Tailwind CSS v4. Package manager: **npm only**.
+Next.js (App Router) + React + TypeScript, Tailwind CSS v4. Package manager: **npm only**.
 
 ## Commands
 
-`npm install` · `npm run dev` · `npm run build` · `npm run lint` · `npm run typecheck`
+`npm install` · `npm run dev` · `npm run build` · `npm run start` · `npm run lint` · `npm run typecheck`
 
 ## Architecture
 
-- Routes in `src/routes/` stay thin: SEO `head` plus a page component imported from `src/features/`.
+- Routes in `src/app/` stay thin: `metadata` (and JSON-LD) plus a page component imported from `src/features/`.
+- Components are Server Components by default; add `"use client"` only to components that use state, effects, browser APIs or event handlers.
 - Feature code (components, data, SEO, types) lives under `src/features/<feature>/`. Only code genuinely used by more than one feature moves to `src/components/`, `src/hooks/` or `src/lib/`.
 - Don't create folders (`services/`, `types/`, `utils/`, …) until the app actually needs them.
-- Public site origin comes from `VITE_SITE_URL`; never hardcode a domain.
+- Public site origin comes from `NEXT_PUBLIC_SITE_URL`; never hardcode a domain.
 
 ## Reusability
 

@@ -1,9 +1,13 @@
-import { useRouter } from "@tanstack/react-router";
+"use client";
+
+import Link from "next/link";
+import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 
-export function ErrorState({ error, reset }: { error: Error; reset: () => void }) {
-  const router = useRouter();
-  console.error(error);
+export function ErrorState({ error, retry }: { error: unknown; retry: () => void }) {
+  useEffect(() => {
+    console.error(error);
+  }, [error]);
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -15,16 +19,9 @@ export function ErrorState({ error, reset }: { error: Error; reset: () => void }
           Something went wrong on our end. You can try refreshing or head back home.
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
-          <Button
-            onClick={() => {
-              router.invalidate();
-              reset();
-            }}
-          >
-            Try again
-          </Button>
+          <Button onClick={retry}>Try again</Button>
           <Button asChild variant="outline">
-            <a href="/">Go home</a>
+            <Link href="/">Go home</Link>
           </Button>
         </div>
       </div>
