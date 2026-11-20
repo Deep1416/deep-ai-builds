@@ -1,7 +1,12 @@
-import { formatDate, type BlogPost } from "@/features/blog/data";
+import { formatDate } from "@/features/blog/data";
 import { cn } from "@/lib/utils";
 
-export function PostMeta({ post, className }: { post: BlogPost; className?: string }) {
+type Props = {
+  post: { date: string; readingTime: string; source?: "site" | "dev.to" };
+  className?: string;
+};
+
+export function PostMeta({ post, className }: Props) {
   return (
     <div
       className={cn(
@@ -12,6 +17,12 @@ export function PostMeta({ post, className }: { post: BlogPost; className?: stri
       <time dateTime={post.date}>{formatDate(post.date)}</time>
       <span aria-hidden="true">·</span>
       <span>{post.readingTime}</span>
+      {post.source === "dev.to" ? (
+        <>
+          <span aria-hidden="true">·</span>
+          <span className="text-primary">on DEV</span>
+        </>
+      ) : null}
     </div>
   );
 }

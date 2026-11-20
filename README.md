@@ -949,7 +949,19 @@ npm run lint
 npm run typecheck
 ```
 
+### Publishing on dev.to (write in the browser)
+
+The easiest way to post, and the way more people will see your writing:
+
+1. Write and publish on [dev.to](https://dev.to) in your browser (free; large developer audience).
+2. Set `DEVTO_USERNAME` to your dev.to username: in `.env.local` for local dev, and in your hosting provider's environment variables for the live site.
+
+Your published dev.to articles then appear automatically, newest first, on the home page Blog section (top 3) and on `/blog`, marked "on DEV" and linking to dev.to. The site re-checks dev.to every hour, so no redeploy is needed. If dev.to is unreachable, the blog still shows your on-site articles.
+
 ### Writing a blog post
+
+You can also host a post on this site itself (it gets its own `/blog/<slug>` page, sitemap and RSS entry):
+
 
 Posts are Markdown files in `content/blog/`. The file name is the URL: `content/blog/my-post.md` → `/blog/my-post`.
 
@@ -985,6 +997,7 @@ Optional fields: `updated: "2026-11-25"` when you revise a post. Reading time is
 | `NEXT_PUBLIC_SITE_URL` | Public origin (no trailing slash). Used for canonical/OG URLs, `og:image`, JSON-LD, `sitemap.xml`, `feed.xml` and the `robots.txt` sitemap line. When unset, those are omitted (the sitemap is empty and `/feed.xml` returns 404). See `.env.example`. |
 | `NEXT_PUBLIC_CONTACT_FORM_ENDPOINT` | Optional. Where the contact form POSTs. Defaults to FormSubmit (forwards to the site email; the first message triggers a one-time confirmation email). Use a Formspree or Web3Forms URL to change provider. |
 | `NEXT_PUBLIC_CONTACT_FORM_ACCESS_KEY` | Optional. Sent as `access_key` (Web3Forms). |
+| `DEVTO_USERNAME` | Optional. Your dev.to username; your published dev.to articles are listed on the home page and `/blog` (refreshed hourly). |
 
 ### Structure
 

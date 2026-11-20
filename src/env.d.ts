@@ -6,5 +6,7 @@ declare namespace NodeJS {
     readonly NEXT_PUBLIC_CONTACT_FORM_ENDPOINT?: string;
     /** Optional access key sent as `access_key` (Web3Forms). */
     readonly NEXT_PUBLIC_CONTACT_FORM_ACCESS_KEY?: string;
+    /** dev.to username whose published articles are listed on the blog (server-only). */
+    readonly DEVTO_USERNAME?: string;
   }
 }
