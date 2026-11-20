@@ -3,10 +3,11 @@ import { ArrowUpRight } from "lucide-react";
 import { SectionHeading } from "@/components/common/section-heading";
 import { Reveal } from "@/components/motion/reveal";
 import { PostMeta } from "@/features/blog/components/post-meta";
-import { sortedPosts } from "@/features/blog/data";
+import { PostLink } from "@/features/blog/components/post-link";
+import { getPostListing } from "@/features/blog/listing";
 
-export function BlogSection() {
-  const posts = sortedPosts.slice(0, 3);
+export async function BlogSection() {
+  const posts = (await getPostListing()).slice(0, 3);
 
   return (
     <section
@@ -23,10 +24,10 @@ export function BlogSection() {
 
         <ul className="mt-16 grid gap-6 md:grid-cols-3">
           {posts.map((post, i) => (
-            <li key={post.slug}>
+            <li key={post.key}>
               <Reveal delay={i * 80} className="h-full">
-                <Link
-                  href={`/blog/${post.slug}`}
+                <PostLink
+                  post={post}
                   className="hover-lift spotlight group flex h-full flex-col rounded-2xl border border-border/70 bg-surface/60 p-6 transition-colors hover:border-primary/40"
                 >
                   <PostMeta post={post} className="gap-2" />
@@ -37,13 +38,13 @@ export function BlogSection() {
                     {post.description}
                   </p>
                   <span className="mt-auto pt-6 inline-flex items-center gap-1.5 font-mono text-[11px] tracking-[0.16em] text-foreground uppercase">
-                    Read article
+                    {post.source === "dev.to" ? "Read on DEV" : "Read article"}
                     <ArrowUpRight
                       className="size-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                       aria-hidden="true"
                     />
                   </span>
-                </Link>
+                </PostLink>
               </Reveal>
             </li>
           ))}

@@ -1,6 +1,6 @@
 import { site } from "@/config/site";
 import { OG_IMAGE_PATH, absoluteUrl, buildMetadata } from "@/lib/seo";
-import { blogMeta, sortedPosts, type BlogPost } from "@/features/blog/data";
+import { blogMeta, getPosts, type BlogPost } from "@/features/blog/data";
 
 const author = (withUrl: boolean) => ({
   "@type": "Person",
@@ -17,7 +17,7 @@ export const blogIndexMetadata = buildMetadata({
   ogType: "website",
 });
 
-export const blogIndexJsonLd = [
+export const blogIndexJsonLd = () => [
   {
     "@context": "https://schema.org",
     "@type": "Blog",
@@ -25,7 +25,7 @@ export const blogIndexJsonLd = [
     description: blogMeta.description,
     url: absoluteUrl("/blog"),
     author: author(true),
-    blogPost: sortedPosts.map((post) => ({
+    blogPost: getPosts().map((post) => ({
       "@type": "BlogPosting",
       headline: post.title,
       description: post.description,

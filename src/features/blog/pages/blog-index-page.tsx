@@ -1,13 +1,16 @@
-import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/motion/reveal";
 import { BackLink } from "@/features/blog/components/back-link";
 import { BlogLayout } from "@/features/blog/components/blog-layout";
 import { PostMeta } from "@/features/blog/components/post-meta";
 import { TagList } from "@/features/blog/components/tag-list";
-import { blogMeta, sortedPosts } from "@/features/blog/data";
+import { PostLink } from "@/features/blog/components/post-link";
+import { blogMeta } from "@/features/blog/data";
+import { getPostListing } from "@/features/blog/listing";
 
-export function BlogIndexPage() {
+export async function BlogIndexPage() {
+  const posts = await getPostListing();
+
   return (
     <BlogLayout>
       <BackLink to="/">Back to portfolio</BackLink>
@@ -25,11 +28,11 @@ export function BlogIndexPage() {
       </Reveal>
 
       <ul className="mt-16 space-y-4">
-        {sortedPosts.map((post, i) => (
-          <li key={post.slug}>
+        {posts.map((post, i) => (
+          <li key={post.key}>
             <Reveal delay={i * 70}>
-              <Link
-                href={`/blog/${post.slug}`}
+              <PostLink
+                post={post}
                 className="hover-lift spotlight group block rounded-2xl border border-border/70 bg-surface/60 p-6 transition-colors hover:border-primary/40 sm:p-8"
               >
                 <PostMeta post={post} className="gap-3" />
@@ -44,7 +47,7 @@ export function BlogIndexPage() {
                   {post.description}
                 </p>
                 <TagList tags={post.tags} className="mt-5" />
-              </Link>
+              </PostLink>
             </Reveal>
           </li>
         ))}

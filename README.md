@@ -949,6 +949,47 @@ npm run lint
 npm run typecheck
 ```
 
+### Publishing on dev.to (write in the browser)
+
+The easiest way to post, and the way more people will see your writing:
+
+1. Write and publish on [dev.to](https://dev.to) in your browser (free; large developer audience).
+2. Set `DEVTO_USERNAME` to your dev.to username: in `.env.local` for local dev, and in your hosting provider's environment variables for the live site.
+
+Your published dev.to articles then appear automatically, newest first, on the home page Blog section (top 3) and on `/blog`, marked "on DEV" and linking to dev.to. The site re-checks dev.to every hour, so no redeploy is needed. If dev.to is unreachable, the blog still shows your on-site articles.
+
+### Writing a blog post
+
+You can also host a post on this site itself (it gets its own `/blog/<slug>` page, sitemap and RSS entry):
+
+
+Posts are Markdown files in `content/blog/`. The file name is the URL: `content/blog/my-post.md` → `/blog/my-post`.
+
+1. Create a post (fills in today's date):
+
+   ```sh
+   npm run new-post "My post title"
+   ```
+
+2. Edit the new file. The block at the top is the post's settings:
+
+   ```md
+   ---
+   title: "My post title"
+   description: "One or two sentences shown on the blog list and in search results."
+   date: "2026-11-21"
+   tags: [LLM, FastAPI]
+   draft: true # remove (or set false) to publish
+   ---
+   ```
+
+   Below it, write normal Markdown: `##` headings (these build the "On this page" menu), lists, links, tables, `inline code` and fenced code blocks. For images, put the file in `public/blog/` and use `![Alt text](/blog/my-image.png)`.
+
+3. Preview with `npm run dev`. Drafts are hidden, so set `draft: false` (or delete the line) to see the post.
+4. Commit and push. The site rebuilds and the post appears on `/blog`, in the sitemap and RSS feed. The home page always shows the 3 newest posts with a link to all of them.
+
+Optional fields: `updated: "2026-11-25"` when you revise a post. Reading time is calculated automatically; override it with `readingTime: "5 min read"`.
+
 ### Configuration
 
 | Variable | Purpose |
@@ -956,6 +997,7 @@ npm run typecheck
 | `NEXT_PUBLIC_SITE_URL` | Public origin (no trailing slash). Used for canonical/OG URLs, `og:image`, JSON-LD, `sitemap.xml`, `feed.xml` and the `robots.txt` sitemap line. When unset, those are omitted (the sitemap is empty and `/feed.xml` returns 404). See `.env.example`. |
 | `NEXT_PUBLIC_CONTACT_FORM_ENDPOINT` | Optional. Where the contact form POSTs. Defaults to FormSubmit (forwards to the site email; the first message triggers a one-time confirmation email). Use a Formspree or Web3Forms URL to change provider. |
 | `NEXT_PUBLIC_CONTACT_FORM_ACCESS_KEY` | Optional. Sent as `access_key` (Web3Forms). |
+| `DEVTO_USERNAME` | Optional. Your dev.to username; your published dev.to articles are listed on the home page and `/blog` (refreshed hourly). |
 
 ### Structure
 
@@ -966,4 +1008,6 @@ src/
 ├── features/     home, projects, blog, contact — components, data, SEO per feature
 ├── components/   shared only: ui/, layout/, motion/, common/, feedback/
 ├── hooks/  lib/  config/
+content/blog/     blog posts as Markdown (see "Writing a blog post")
+scripts/new-post.mjs   `npm run new-post "Title"` scaffolds a post
 ```

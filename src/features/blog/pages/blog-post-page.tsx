@@ -2,14 +2,16 @@ import Link from "next/link";
 import { Reveal } from "@/components/motion/reveal";
 import { BackLink } from "@/features/blog/components/back-link";
 import { BlogLayout } from "@/features/blog/components/blog-layout";
-import { PostBlock } from "@/features/blog/components/post-block";
+import { PostBody } from "@/features/blog/components/post-body";
 import { PostToc } from "@/features/blog/components/post-toc";
 import { PostMeta } from "@/features/blog/components/post-meta";
 import { TagList } from "@/features/blog/components/tag-list";
-import { sortedPosts, type BlogPost } from "@/features/blog/data";
+import { getPosts, type BlogPost } from "@/features/blog/data";
 
 export function BlogPostPage({ post }: { post: BlogPost }) {
-  const others = sortedPosts.filter((p) => p.slug !== post.slug).slice(0, 2);
+  const others = getPosts()
+    .filter((p) => p.slug !== post.slug)
+    .slice(0, 2);
 
   return (
     <BlogLayout>
@@ -29,13 +31,11 @@ export function BlogPostPage({ post }: { post: BlogPost }) {
           </Reveal>
 
           <div className="mt-14 max-w-3xl space-y-6">
-            {post.body.map((block, i) => (
-              <PostBlock key={i} block={block} />
-            ))}
+            <PostBody markdown={post.body} />
           </div>
         </article>
 
-        <PostToc body={post.body} />
+        <PostToc headings={post.headings} />
       </div>
 
       {others.length ? (
