@@ -9,6 +9,7 @@ const addressBar: Record<Project["preview"], string> = {
   dashboard: "app / dashboard",
   jobboard: "app / jobs",
   website: "site / products",
+  marketplace: "site / virtual-offices",
 };
 
 export function ProjectPreview({ variant }: { variant: Project["preview"] }) {
@@ -27,8 +28,10 @@ export function ProjectPreview({ variant }: { variant: Project["preview"] }) {
           <DashboardMock />
         ) : variant === "jobboard" ? (
           <JobBoardMock />
-        ) : (
+        ) : variant === "website" ? (
           <WebsiteMock />
+        ) : (
+          <MarketplaceMock />
         )}
       </div>
     </div>
@@ -153,6 +156,49 @@ function WebsiteMock() {
           #1
         </span>
         <Bar className="flex-1" />
+      </div>
+    </div>
+  );
+}
+
+function MarketplaceMock() {
+  return (
+    <div className="grid gap-3" aria-hidden="true">
+      <div className="flex items-center gap-2 rounded-xl border border-border/70 bg-surface/50 px-3 py-2">
+        <span className="size-3 rounded-full border border-muted-foreground/50" />
+        <Bar className="w-1/3" />
+        <span className="ml-auto rounded-md bg-primary/40 px-2 py-0.5 font-mono text-[0.55rem] text-foreground">
+          Search
+        </span>
+      </div>
+      <div className="flex flex-wrap gap-2">
+        {["Bengaluru", "Noida", "Kolkata", "Thane"].map((city) => (
+          <span
+            key={city}
+            className="rounded-full border border-border/70 px-2.5 py-0.5 font-mono text-[0.55rem] text-muted-foreground"
+          >
+            {city}
+          </span>
+        ))}
+      </div>
+      <div className="space-y-2.5">
+        {[0, 1, 2].map((i) => (
+          <div
+            key={i}
+            className="flex items-center gap-3 rounded-xl border border-border/70 bg-surface/50 p-3"
+            style={{ opacity: 1 - i * 0.18 }}
+          >
+            <span className="size-8 shrink-0 rounded-lg bg-primary/25" />
+            <div className="flex-1 space-y-1.5">
+              <Bar className="w-3/5" />
+              <Bar className="w-2/5" />
+            </div>
+            <span className="h-2.5 w-10 rounded-full bg-primary/40" />
+            <span className="rounded-md border border-border/60 px-2 py-0.5 font-mono text-[0.55rem] text-muted-foreground">
+              Book
+            </span>
+          </div>
+        ))}
       </div>
     </div>
   );

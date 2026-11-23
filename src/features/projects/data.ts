@@ -8,7 +8,7 @@ export type Project = {
   github?: string;
   liveUrl?: string;
   caseStudyUrl?: string;
-  preview: "dashboard" | "jobboard" | "website";
+  preview: "dashboard" | "jobboard" | "website" | "marketplace";
 };
 
 export const projects: Project[] = [
@@ -82,5 +82,33 @@ export const projects: Project[] = [
     github: "https://github.com/Deep1416/shimed_static",
     liveUrl: "https://shinemedpharmaceuticals.com/",
     preview: "website",
+  },
+  {
+    name: "OfficeMate",
+    subtitle: "Virtual Office Marketplace & Local SEO",
+    description:
+      "A marketplace for virtual office addresses across India, used for GST registration, company registration and APOB. Businesses compare offices by city, book online and track their booking, while an admin dashboard manages leads and bookings. Every page is prerendered and optimised for city-level search.",
+    tech: [
+      "React",
+      "TanStack Router",
+      "Vite",
+      "Tailwind CSS",
+      "Google Apps Script",
+      "Schema.org / JSON-LD",
+    ],
+    features: [
+      "15 office listings in 11 cities across 9 states",
+      "Online booking with booking-status tracking",
+      "Quote and lead forms with WhatsApp contact",
+      "Admin dashboard for leads and bookings",
+      "Prerendered static pages for fast, crawlable loads",
+      "Unique local content on every city and state page",
+      "LocalBusiness, Offer, FAQ, Article and Breadcrumb structured data",
+      "Service pages and blog targeting GST and virtual office searches",
+    ],
+    metric: "56 search-optimised pages targeting 'virtual office in <city>' searches",
+    github: "https://github.com/Deep1416/officemate_static",
+    liveUrl: "https://www.officemate.co.in/",
+    preview: "marketplace",
   },
 ];
