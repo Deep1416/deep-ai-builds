@@ -66,6 +66,7 @@ export const projects: Project[] = [
       "PHP contact form",
     ],
     metric: "Ranks first in Google search results for the company",
+    github: "https://github.com/Deep1416/shimed_static",
     liveUrl: "https://shinemedpharmaceuticals.com/",
     preview: "website",
   },
