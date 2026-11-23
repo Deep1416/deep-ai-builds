@@ -995,8 +995,8 @@ Optional fields: `updated: "2026-11-25"` when you revise a post. Reading time is
 | Variable | Purpose |
 | --- | --- |
 | `NEXT_PUBLIC_SITE_URL` | Public origin (no trailing slash). Used for canonical/OG URLs, `og:image`, JSON-LD, `sitemap.xml`, `feed.xml` and the `robots.txt` sitemap line. When unset, those are omitted (the sitemap is empty and `/feed.xml` returns 404). See `.env.example`. |
-| `NEXT_PUBLIC_CONTACT_FORM_ENDPOINT` | Optional. Where the contact form POSTs. Defaults to FormSubmit (forwards to the site email; the first message triggers a one-time confirmation email). Use a Formspree or Web3Forms URL to change provider. |
-| `NEXT_PUBLIC_CONTACT_FORM_ACCESS_KEY` | Optional. Sent as `access_key` (Web3Forms). |
+| `NEXT_PUBLIC_CONTACT_FORM_ENDPOINT` | Where the contact form POSTs. The live site uses Web3Forms (`https://api.web3forms.com/submit`). Without an access key it falls back to FormSubmit, which forwards to the site email after a one-time activation. |
+| `NEXT_PUBLIC_CONTACT_FORM_ACCESS_KEY` | Web3Forms access key, sent as `access_key` (public by design). Free Web3Forms accepts browser submissions only. |
 | `DEVTO_USERNAME` | Optional. Your dev.to username; your published dev.to articles are listed on the home page and `/blog` (refreshed hourly). |
 
 ### Structure
