@@ -193,15 +193,7 @@ export const skillGroups = [
   },
   {
     title: "AI",
-    items: [
-      "Generative AI",
-      "LLM APIs",
-      "OpenAI API",
-      "RAG",
-      "Prompt Engineering",
-      "Voice AI",
-      "AI Workflow Automation",
-    ],
+    items: ["LLM APIs", "OpenAI API", "Prompt Engineering", "Voice AI", "AI Workflow Automation"],
   },
   {
     title: "Cloud, DevOps & Testing",
