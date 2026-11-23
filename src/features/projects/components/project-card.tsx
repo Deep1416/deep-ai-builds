@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 
 export function ProjectCard({ project, index }: { project: Project; index: number }) {
   const flip = index % 2 === 1;
+  const caseStudyHref = project.caseStudyUrl ?? project.github;
 
   return (
     <Reveal as="article" className="surface-card spotlight hover-lift overflow-hidden p-5 sm:p-8">
@@ -48,11 +49,13 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
           </ul>
 
           <div className="mt-7 flex flex-wrap gap-3">
-            <Button variant="subtle" asChild>
-              <a href={project.caseStudyUrl ?? project.github ?? "#projects"}>
-                View Case Study <ArrowUpRight aria-hidden="true" />
-              </a>
-            </Button>
+            {caseStudyHref ? (
+              <Button variant="subtle" asChild>
+                <a href={caseStudyHref}>
+                  View Case Study <ArrowUpRight aria-hidden="true" />
+                </a>
+              </Button>
+            ) : null}
             {project.github ? (
               <Button variant="quiet" asChild>
                 <a href={project.github} target="_blank" rel="noreferrer noopener">

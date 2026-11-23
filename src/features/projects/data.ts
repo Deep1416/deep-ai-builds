@@ -8,7 +8,7 @@ export type Project = {
   github?: string;
   liveUrl?: string;
   caseStudyUrl?: string;
-  preview: "dashboard" | "jobboard";
+  preview: "dashboard" | "jobboard" | "website";
 };
 
 export const projects: Project[] = [
@@ -49,5 +49,24 @@ export const projects: Project[] = [
     metric: "60% improvement in search efficiency",
     github: "https://github.com/Deep1416",
     preview: "jobboard",
+  },
+  {
+    name: "Shinemed Pharmaceuticals",
+    subtitle: "Company Website & Technical SEO",
+    description:
+      "Built the complete website for a Delhi-based pharmaceutical company and optimised it for search. Product pages are generated from a single JSON catalogue, and an automated linter keeps every page's SEO correct before deployment.",
+    tech: ["HTML", "CSS", "JavaScript", "Node.js", "PHP", "Schema.org / JSON-LD"],
+    features: [
+      "14 product pages generated from one JSON catalogue",
+      "Unique titles, descriptions, canonicals and Open Graph tags per page",
+      "Product, Offer, Organization and Breadcrumb structured data",
+      "Generated sitemap.xml and robots.txt",
+      "SEO linter for titles, canonicals, JSON-LD, links and sitemap",
+      "Caching, compression and custom 404 via .htaccess",
+      "PHP contact form",
+    ],
+    metric: "Ranks first in Google search results for the company",
+    liveUrl: "https://shinemedpharmaceuticals.com/",
+    preview: "website",
   },
 ];

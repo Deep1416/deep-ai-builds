@@ -1,10 +1,17 @@
+import type { Project } from "@/features/projects/data";
 import { cn } from "@/lib/utils";
 
 /**
  * Stylised in-browser product previews. Decorative placeholders designed to be
  * swapped for real screenshots later.
  */
-export function ProjectPreview({ variant }: { variant: "dashboard" | "jobboard" }) {
+const addressBar: Record<Project["preview"], string> = {
+  dashboard: "app / dashboard",
+  jobboard: "app / jobs",
+  website: "site / products",
+};
+
+export function ProjectPreview({ variant }: { variant: Project["preview"] }) {
   return (
     <div className="relative overflow-hidden rounded-2xl border border-border/80 bg-background/60">
       <div className="flex items-center gap-2 border-b border-border/70 bg-surface/60 px-4 py-2.5">
@@ -12,10 +19,18 @@ export function ProjectPreview({ variant }: { variant: "dashboard" | "jobboard" 
         <span aria-hidden="true" className="size-2 rounded-full bg-muted-foreground/40" />
         <span aria-hidden="true" className="size-2 rounded-full bg-muted-foreground/40" />
         <span className="ml-3 truncate rounded-md border border-border/60 px-2 py-0.5 font-mono text-[0.65rem] text-muted-foreground">
-          {variant === "dashboard" ? "app / dashboard" : "app / jobs"}
+          {addressBar[variant]}
         </span>
       </div>
-      <div className="p-4">{variant === "dashboard" ? <DashboardMock /> : <JobBoardMock />}</div>
+      <div className="p-4">
+        {variant === "dashboard" ? (
+          <DashboardMock />
+        ) : variant === "jobboard" ? (
+          <JobBoardMock />
+        ) : (
+          <WebsiteMock />
+        )}
+      </div>
     </div>
   );
 }
@@ -100,6 +115,44 @@ function JobBoardMock() {
             </div>
           </div>
         ))}
+      </div>
+    </div>
+  );
+}
+
+function WebsiteMock() {
+  return (
+    <div className="grid gap-3" aria-hidden="true">
+      <div className="flex items-center justify-between rounded-xl border border-border/70 bg-surface/50 px-3 py-2">
+        <span className="h-3 w-16 rounded-md bg-primary/40" />
+        <div className="flex gap-2">
+          {[0, 1, 2, 3].map((i) => (
+            <Bar key={i} className="w-8" />
+          ))}
+        </div>
+      </div>
+      <div className="rounded-xl border border-border/70 bg-surface/50 p-4">
+        <Bar className="h-3 w-3/5 bg-muted-foreground/30" />
+        <Bar className="mt-2 w-2/5" />
+        <span className="mt-4 inline-block h-5 w-20 rounded-md bg-primary/50" />
+      </div>
+      <div className="grid grid-cols-3 gap-3">
+        {[0, 1, 2].map((i) => (
+          <div key={i} className="rounded-xl border border-border/70 bg-surface/50 p-2.5">
+            <div className="h-12 rounded-lg bg-primary/15" />
+            <Bar className="mt-2.5 w-4/5" />
+            <Bar className="mt-1.5 w-1/2" />
+          </div>
+        ))}
+      </div>
+      <div className="flex items-center gap-2 rounded-xl border border-primary/30 bg-primary/10 px-3 py-2">
+        <span className="font-mono text-[0.6rem] tracking-widest text-primary uppercase">
+          Google
+        </span>
+        <span className="rounded-md bg-primary/30 px-1.5 py-0.5 font-mono text-[0.55rem] text-foreground">
+          #1
+        </span>
+        <Bar className="flex-1" />
       </div>
     </div>
   );
